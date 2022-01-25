@@ -1,4 +1,4 @@
-//Program to display octal and hexadecimal form of 100 and 200 in decimal
+//Program to display octal and hexadecimal form of 100 to 200 in decimal
 
 #include <iostream>
 
@@ -6,21 +6,7 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-class Convertor{
-    private:
-        int decimalNumber;
-    public:
-        Convertor(){
-            decimalNumber=0;
-        }
-        Convertor(int decimalNumber){
-            this->decimalNumber=decimalNumber;
-        }
-        void displayOCT();
-        void displayHEX();
-};
-
-void Convertor::displayOCT(){
+void convertOCT(int decimalNumber){
     int octalNumber[5];
     int i=0;
     int quotient = decimalNumber;
@@ -37,7 +23,7 @@ void Convertor::displayOCT(){
     cout<<endl;    
 }
 
-void Convertor::displayHEX(){
+void convertHEX(int decimalNumber){
     char hexNumber[5];
 
     int i=0;
@@ -66,18 +52,36 @@ void Convertor::displayHEX(){
     cout<<endl; 
 }
 
+class Convertor{
+    private:
+        int start;
+        int end;
+        
+    public:
+       
+        Convertor(int start,int end){
+            
+            this->start=start;
+            this->end = end;
+        }
+        void display();
+        
+};
+
+void Convertor::display(){
+    for(int i=start;i<=end;i++){
+        cout<<"-------------------------------"<<endl;
+        convertOCT(i);
+        convertHEX(i);        
+    }
+}
+
+
 int main(){
-    Convertor c1(100), c2(200);
-
-   
-
     
-    //100
-    c1.displayOCT();
-    c1.displayHEX();
-    //200
-    c2.displayOCT();
-    c2.displayHEX();
-    
+    Convertor obj(100,200);
+
+    obj.display();
+
     return 0;
 }

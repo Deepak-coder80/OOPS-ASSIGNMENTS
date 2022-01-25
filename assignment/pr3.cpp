@@ -3,11 +3,43 @@ Write a program to accept a string using get() function.Display the string using
 */
 
 #include <iostream>
+#include <cstring>
 
 using std::cout;
 using std::cin;
 using std::endl;
 
+class HandleString{
+    private:
+        
+        char sampleString[50]; // std::string sampleString;
+    public:
+        void getString();
+        void writeString();
+};
+
+void HandleString::getString(){
+   
+    cout<<"Enter String";
+    cin.get(sampleString,50);    
+}
+
+void HandleString::writeString(){
+    int length = strlen(sampleString);
+    cout<<"Entered String is : ";
+    cout.write(sampleString,length);
+   
+}
+
+int main(){
+    HandleString st1;
+    st1.getString();
+    st1.writeString();
+    return 0;
+}
+
+/*
+DO NOT USE THIS -- DEAD CODE 
 class HandleString{
     private:
         int size;
@@ -44,3 +76,4 @@ int main(){
     st1.write();
     return 0;
 }
+*/
